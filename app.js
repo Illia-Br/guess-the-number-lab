@@ -11,17 +11,16 @@ const game = {
       (this.biggestNum - this.smallestNum + 1)) + this.smallestNum;
     let playerGuess;
     do {
-      playerGuess = getGuess();
+      playerGuess = this.getGuess();
       this.prevGuesses.push(playerGuess);
-      render(playerGuess);
-    } while (playerGuess !== secretNum);
-    
+      this.render(playerGuess);
+    } while (playerGuess !== this.secretNum);
+    return;
   },
   getGuess: function() {
     let input = parseInt(prompt(`Enter a guess between ${this.smallestNum} and ${this.biggestNum}:`));
     while (!(input >= this.smallestNum) || !(input <= this.biggestNum)) {
     input = parseInt(prompt(`Wrong format or your guess is out of range. Enter a guess between ${this.smallestNum} and ${this.biggestNum}:`));
-    console.log(input);
     }
     return input;
   },
@@ -35,5 +34,3 @@ const game = {
     }
   }
 }
-
-// game.getGuess();
