@@ -9,6 +9,12 @@ const game = {
   play: function() {
     this.secretNum = Math.floor(Math.random() * 
       (this.biggestNum - this.smallestNum + 1)) + this.smallestNum;
+    let playerGuess;
+    do {
+      playerGuess = getGuess();
+      this.prevGuesses.push(playerGuess);
+    } while (playerGuess !== secretNum);
+
   },
   getGuess: function() {
     let input;
@@ -17,7 +23,10 @@ const game = {
       console.log(input);
     }
     return input;
+  },
+  render: function() {
+    
   }
 }
 
-game.getGuess();
+// game.getGuess();
